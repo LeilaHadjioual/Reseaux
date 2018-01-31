@@ -87,6 +87,22 @@
 
         leila.ilot.digital
 
-7. si affiche index, tout est ok
+7. si affiche page projet, tout est ok
 
-8. rappatrier le projet machine à café dans le dossier Leila (cf memo recup projet laravel)
+8. pour que laravel puisse retrouver le chemin des vues au delà de l'index  
+
+	a2enmod rewrite  
+
+ajouter dans le fichier .conf (leila.conf) :  
+
+	<Directory/var/www/>  
+		Options Indexes FollowSymlinks  
+		Allowoverride All  
+		Required all granted  
+	</Directory>
+
+puis redémarrer  
+	
+	service apache2 restart  
+
+9. rappatrier le projet machine à café dans le dossier du projet (cf procédure recup projet laravel avec droits user et BDD)
