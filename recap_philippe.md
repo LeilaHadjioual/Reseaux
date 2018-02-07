@@ -1,5 +1,4 @@
-
-##PROCEDURE INSTALLATION SERVEUR
+#PROCEDURE INSTALLATION SERVEUR
 
     1  apt-get update  
     2  apt-get upgrade  

@@ -1,7 +1,7 @@
 ##Procédure d'installation serveur  
 ###debian 9 - mySQL - apache - phpmyadmin
 
-Pour se connecter : 
+Pour se connecter :   
 	ouvrir bash  
 	taper root@ 163.172.183.212   
 	un message s'affiche : répondre yes  
@@ -42,20 +42,20 @@ Pour se connecter :
 	    La page de debian devrait s'afficher avec "It works!".
 	    Cette page nous donne le chemin d'accès dans lequel on va pouvoir tester si le serveur fonctionne bien et les différentes versions installées.
 
--**Etape 8** : Changer de répertoire pour être dans HTML
+- **Etape 8** : Changer de répertoire pour être dans HTML
 
 	    aller dans le répertoire HTML avec les commandes CD, 
 	    on devrait avoir un seul fichier "index.HTML" dans le dossier HTML
 
 
--**Etape 9** : créer le fichier Test.php
+- **Etape 9** : créer le fichier Test.php
 
 	    nano test.php  
 	    Création d'un fichier Test.php dans le répertoire HTML et ajouter "<?php phpinfo(); ?>"  
 	    *La commande nano crée le fichier s'il n'existe pas, mais permet aussi de lire le fichier ou de le modifier s'il est déjà crée. 
 	    (CTRL X pour sortir du fichier ).*
 	
--**Etape 10** : afficher les versions de logiciel sur le navigateur
+- **Etape 10** : afficher les versions de logiciel sur le navigateur
 
 	    AdresseIP du serveur web/test.php
 	    exemple : 152.187.251.132/test.php
@@ -71,41 +71,55 @@ Pour se connecter :
 	
 *Importation du code depuis git hub* 
 
-	1.se connecter au serveur
+1.se connecter au serveur
+
 		ssh root@163.172.183.212
 		mdp : darth_sidious (par défaut azerty mais modif en faisant la commande passwd)
 
-	2.si erreur de connection : warning remote
+2.si erreur de connection : warning remote
+
 		faire rm/p/ssh/know_hosts (ce chemin est précisé dans l'erreur) et retenter la connection
 
-	3.git clone https://github.com/campus-digital-grenoble/MachinaCafe_ilot3.git
+3.cloner le projet  
 
-	4.créer un utilisateur 
+        git clone https://github.com/campus-digital-grenoble/MachinaCafe_ilot3.git
+
+4.créer un utilisateur
+ 
 		create user 'nom'@localhost' identified by 'motdepasse'
 
-	5.Administrer des droits à un user
+5.Administrer des droits à un user
+
 		grant all on machin_coffee.* to 'vader'@'localhost';
 
-	6.créer une base de données
+6.créer une base de données
+
 		create database nombdd
 
-	7.vérifier si bdd créer
+7.vérifier si bdd créer
+
 		show databases;
 
-	8.lien entre entre fichier serveur et dossiers		
+8.lien entre entre fichier serveur et dossiers
+		
 		ln -s/usr/share/phpmyadmin phpmyadmin
-    *le fichier phpmyadmin se retrouve dans le dossier html (c'est une copie du fichier phpmyadmin liée au fichier phpmyadmin, permet de l'avoir à jour directement).*
+        *le fichier phpmyadmin se retrouve dans le dossier html (c'est une copie du fichier phpmyadmin liée au fichier phpmyadmin, permet de l'avoir à jour directement).*
 
-	9. Se connecter à phpmyadmin 
+9.Se connecter à phpmyadmin
+ 
 		mysql-u root
 
-	10. si ouverture de la bdd via serveur distant
+10. si ouverture de la bdd via serveur distant
+
 		user : phpmyadmin ou nom user créé
 		mdp : si inchangé le mdp de la bdd
 
-	11. importer la bdd de phpmyadmin en local et insérer dans la bdd de phpmyadmin distant (entrer dans la base de données créée au préalable)
+11.importer la bdd de phpmyadmin en local et insérer dans la bdd de phpmyadmin distant  
+        
+        (entrer dans la base de données créée au préalable)  
+ 
+12.modifier le contenu d'un fichier
 
-	12. modifier le contenu d'un fichier
 		nano var/www/html/machineacafe
 		modifier le pdo – dbname et vérifier qu'il est nommé de la meme facon que la bdd créer sur serveur distant
 
