@@ -1,86 +1,73 @@
-**Procédure d'installation serveur**
-
-
+##Procédure d'installation serveur  
+###debian 9 - mySQL - apache - phpmyadmin
 
 Pour se connecter : 
-	ouvrir bash
-	taper root@ 163.172.183.212 
-	un message s'affiche : répondre yes
-	Entrer le mot de passe par défaut qui est "azerty".
+	ouvrir bash  
+	taper root@ 163.172.183.212   
+	un message s'affiche : répondre yes  
+	Entrer le mot de passe par défaut qui est "azerty".  
 
-
-
+----
 **Installation DEBIAN 9**
 
 - **Etape 1** : Verifier que la distribution est à jour
 
-	apt-get update && apt-get upgrade 
-
+	    apt-get update && apt-get upgrade 
 
 - **Etape 2** : installation de mysql 
 
-	apt-get install mysql-server mysql-client
-	*Création d'un mot de passe*
-
+	    apt-get install mysql-server mysql-client
+	    *Création d'un mot de passe*
 
 - **Etape 3** : installation du serveur web apache 2 
 
-	apt-get install apache2 apache2-doc
-
+	    apt-get install apache2 apache2-doc
 
 - **Etape 4** : installation de PHP7 
 
-	apt-get install php7 php7-mysql libapache2-mod-php7
-
+	    apt-get install php7 php7-mysql libapache2-mod-php7
 
 - **Etape 5** : installation de PHP myadmin
 
-	apt-get install phpmyadmin
-	*Creation d'un mot de passe pour php myadmin*
-
+	    apt-get install phpmyadmin
+	    *Creation d'un mot de passe pour php myadmin*
 
 - **Etape 6** : restart du serveur web
 
-	service apache2 restart
-
+	    service apache2 restart
 
 - **Etape 7**: ouverture de la page "Debian default page"
 
-	Dans un navigateur internet, saisir dans l'url l'adresse IP du serveur web.
-	La page de debian devrait s'afficher avec "It works!".
-	Cette page nous donne le chemin d'accès dans lequel on va pouvoir tester si le serveur fonctionne bien et les différentes versions installées.
-
+	    Dans un navigateur internet, saisir dans l'url l'adresse IP du serveur web.
+	    La page de debian devrait s'afficher avec "It works!".
+	    Cette page nous donne le chemin d'accès dans lequel on va pouvoir tester si le serveur fonctionne bien et les différentes versions installées.
 
 -**Etape 8** : Changer de répertoire pour être dans HTML
 
-	aller dans le répertoire HTML avec les commandes CD, 
-	on devrait avoir un seul fichier "index.HTML" dans le dossier HTML
+	    aller dans le répertoire HTML avec les commandes CD, 
+	    on devrait avoir un seul fichier "index.HTML" dans le dossier HTML
 
 
-- **Etape 8** : créer le fichier Test.php
+-**Etape 9** : créer le fichier Test.php
 
-	nano test.php
-	Création d'un fichier Test.php dans le répertoire HTML et ajouter  "<?php phpinfo(); ?>"
-	*La commande nano crée le fichier s'il n'existe pas, mais permet aussi de lire le fichier ou de le modifier s'il est déjà crée. 
-	(CTRL X pour sortir du fichier ).*
+	    nano test.php  
+	    Création d'un fichier Test.php dans le répertoire HTML et ajouter "<?php phpinfo(); ?>"  
+	    *La commande nano crée le fichier s'il n'existe pas, mais permet aussi de lire le fichier ou de le modifier s'il est déjà crée. 
+	    (CTRL X pour sortir du fichier ).*
 	
-- **Etape 9** : afficher les versions de logiciel sur le navigateur
+-**Etape 10** : afficher les versions de logiciel sur le navigateur
 
-	AdresseIP du serveur web/test.php
+	    AdresseIP du serveur web/test.php
+	    exemple : 152.187.251.132/test.php
 
-	exemple : 152.187.251.132/test.php
-
-*si des fenêtres s'affiche taper yes*
+*si des fenêtres s'affichent taper yes*
 	
+**Le serveur est installé et configuré, prêt à fonctionner**
+
+----
 
 
-**Notre serveur est installé et configuré, prêt à fonctionner**
-
-
-
-
-**IMPORTER LE PROJET**
-
+**IMPORTER LE PROJET MACHINE A CAFE**
 	
 *Importation du code depuis git hub* 
 
@@ -107,7 +94,7 @@ Pour se connecter :
 
 	8.lien entre entre fichier serveur et dossiers		
 		ln -s/usr/share/phpmyadmin phpmyadmin
-*le fichier phpmyadmin se retrouve dans le dossier html (c'est une copie du fichier phpmyadmin liée au fichier phpmyadmin, permet de l'avoir à jour directement).*
+    *le fichier phpmyadmin se retrouve dans le dossier html (c'est une copie du fichier phpmyadmin liée au fichier phpmyadmin, permet de l'avoir à jour directement).*
 
 	9. Se connecter à phpmyadmin 
 		mysql-u root
@@ -122,15 +109,16 @@ Pour se connecter :
 		nano var/www/html/machineacafe
 		modifier le pdo – dbname et vérifier qu'il est nommé de la meme facon que la bdd créer sur serveur distant
 
-**si erreur**
-	var/log/apache2
-	cat error.log
-		verifier les erreurs, regarder le nom du fichier en question et le n°de ligne	
-	retourner dans le dossier machineacafe
-	nano fonctions.php
-	modifier le fichier
-	ctrl o
-	entrée
-	ctrl x
-	mettre à jour : service apache2 restart
+**si erreur**   
+
+	    var/log/apache2  
+	    cat error.log  
+		        verifier les erreurs, regarder le nom du fichier en question et le n°de ligne	
+	    retourné dans le dossier machineacafe  
+	    nano fonctions.php  
+	    modifier le fichier  
+	    ctrl o  
+	    entrée  
+	    ctrl x  
+	    mettre à jour : service apache2 restart  
 	
